@@ -16,14 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.staticTextView.text = @"";
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)pressedButton:(id)sender {
+    NSString* textInTextField = self.editTextField.text;
+    int textAsInt = [textInTextField intValue];
+    
+    if (self.staticTextView.text.length > 0) {
+//        self.staticTextView.text = [NSString stringWithFormat:@"%@\n%@",
+//                                self.staticTextView.text, textInTextField];
+        self.staticTextView.text = [NSString stringWithFormat:@"%@\n%d",
+                                    self.staticTextView.text, textAsInt];
+    } else {
+//        self.staticTextView.text = textInTextField;
+        self.staticTextView.text = [NSString stringWithFormat:@"%d", textAsInt];
+    }
+    
+    self.editTextField.text = @"";
+    [self.view endEditing:YES];
 }
-
 
 @end

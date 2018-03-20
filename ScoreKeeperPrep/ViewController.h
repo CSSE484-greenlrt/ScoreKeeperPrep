@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)pressedButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField* editTextField;
+@property (weak, nonatomic) IBOutlet UITextView* staticTextView;
 
 @end
 
